@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    
+ <link rel="stylesheet" href={{ url_for( 'static', filename='style.css' ) }} />  
 </head>
 
 <body>
@@ -11,8 +11,12 @@
         <h2>The artist we will be showcasing today is: {{name}}</h2>
     
         <div class='item'>
-            <p><b>The track we will be listening to today is {{track}}</b></p>
-            <p>Take a listen to a snippet here {{preview}}</p>
+            <p><b>The track we will be listening to today is: {{track}}</b></p>
+            <img src={{image}} />  
+            <p>Take a listen to a snippet here </p>
+            <audio control> 
+                <source scr={{preview}}  type="audio/mpeg"{{ preview }}>
+            </audio>
         </div>
         
     </div>

@@ -21,8 +21,8 @@ def hello_world():
         "index.html",
         name=top_tracks['s_name'],
         track=top_tracks['s_track'],
-        preview=top_tracks['s_preview']
-        
+        preview=top_tracks['s_preview'],
+        image=top_tracks['s_image']
         )
 
 app1.run(

@@ -33,6 +33,8 @@ def get_top_tracks():
     response = requests.get(Top_Tracks_URL, headers=headers,params=params)
     data = response.json()
 #''' DISPLAYING Top Tracks '''
+    def get_image():
+        return data['tracks'][random_number]['album']['images'][0]['url']
     def get_track():
         return data['tracks'][random_number]['name']
     def get_name():
@@ -40,13 +42,16 @@ def get_top_tracks():
     def get_preview():
         return data['tracks'][random_number]['preview_url']
     
+    
     s_name = get_name()
     s_track = get_track()
     s_preview = get_preview()
+    s_image = get_image()
     
     return { 's_name' : s_name, 
             's_track' : s_track,
-            's_preview' : s_preview 
+            's_preview' : s_preview,
+            's_image' : s_image
         
     }
     
