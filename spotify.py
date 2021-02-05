@@ -39,9 +39,11 @@ def get_top_tracks():
         return data['tracks'][random_number]['artists'][0]['name']
     def get_preview():
         return data['tracks'][random_number]['preview_url']
+    
+    
         
-    for i in range(0, 10):
-        print(data['tracks'][i]['name'], 'By:' ,data['tracks'][i]['artists'][0]['name'], 'Listen Here:', data['tracks'][i]['preview_url'])
+    #for i in range(0, 10):
+        #print(data['tracks'][i]['name'], 'By:' ,data['tracks'][i]['artists'][0]['name'], 'Listen Here:', data['tracks'][i]['preview_url'])
   
 # Print song names for first 10 songs in new releases returned by search endpoint
 #for i in range(0, 10):

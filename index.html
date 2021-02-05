@@ -2,18 +2,19 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href={{ url_for( 'static', filename='style.css' ) }} />
+    
 </head>
 
 <body>
-    <h1>What's being reported about {{ topic }}?</h1>
+    <h1>Welcome to Jaymee's Artist Spotlight</h1>
     <div class='container'>
-        {% for i in range(10) %}
+        <h2>The artist we will be showcasing today is: {{name}}</h2>
+    
         <div class='item'>
-            <p><b>{{ headlines[i] }}</b></p>
-            <p>{{ snippets[i] }}</p>
+            <p><b>The track we will be listening to today is {{track}}</b></p>
+            <p>Take a listen to a snippet here {{preview}}</p>
         </div>
-        {% endfor %}
+        
     </div>
 
 </body>
