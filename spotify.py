@@ -40,6 +40,15 @@ def get_top_tracks():
     def get_preview():
         return data['tracks'][random_number]['preview_url']
     
+    s_name = get_name()
+    s_track = get_track()
+    s_preview = get_preview()
+    
+    return { 's_name' : s_name, 
+            's_track' : s_track,
+            's_preview' : s_preview 
+        
+    }
     
         
     #for i in range(0, 10):
