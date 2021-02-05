@@ -1,48 +1,32 @@
 ''' Project 1: Milestone 1'''
-# just a comment
-import requests
+from flask import Flask, render_template
+from spotify import get_top_tracks()
 import os
-from dotenv import load_dotenv, find_dotenv
+import random
 
+app1 = Flask(__name__)
+app1.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0    
 
-load_dotenv(find_dotenv()) # This is to load your API keys from .env
-
-
-''' GETTING AN ACCESS TOKEN '''
-AUTH_URL = 'https://accounts.spotify.com/api/token'
-Browse_URL = 'https://api.spotify.com/v1/browse/new-releases'
-
-auth_response = requests.post(AUTH_URL, {
-    'grant_type': 'client_credentials',
-    'client_id': os.getenv('Spotify_KEY'),
-    'client_secret': os.getenv('Spotify_Secret'),
-})
-
-#convert response to json
-auth_response_data = auth_response.json()
-
-#saving the access token
-access_token = auth_response_data['access_token']
-#print(access_token)
-
-
-''' GETTING SONG DATA '''
-headers = {
-    'Authorization': 'Bearer {token}'.format(token=access_token)
+@app1.route('/')
+def hello_world():
+    print('Updated printline')
     
+    random_number = random.randint(0,4)
+    favorite = 'Atlanta'
+    show_images = ['https://www.denofgeek.com/wp-content/uploads/2020/09/Attack-on-Titan-Season-4-Poster.jpg?resize=725,1024','https://i.ytimg.com/vi/oZCPRs_w2yo/maxresdefault.jpg','https://www.telegraphstar.com/wp-content/uploads/2019/08/atlanta-tv-show.jpg','https://m.media-amazon.com/images/M/MV5BZjM3YzQyZGUtZTE0Ny00OGIyLTg4NDEtMTJlZmZlMmJkMjY2XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg','https://images-na.ssl-images-amazon.com/images/I/51g9Rw0ieuL._SY445_.jpg']
+    tv_shows = ['Attack on Titan', 'Boondocks', 'Atlanta', 'Solar Oppisites', 'The Wayans Bros.']
+    return render_template(
+        "index.html",
+        len = len(tv_shows),
+        img_len = len(show_images),
+        show_images = show_images,
+        tv_shows = tv_shows,
+        favorite = favorite
+        )
+
+app1.run(
+    port=int(os.getenv('PORT',8080)),
+    host=os.getenv('IP' '0.0.0.0'),
+    debug=True
+    )
     
-}
-params={'country' : 'US', 'limit' : 10,}
-
-
-response = requests.get(Browse_URL, headers=headers,params=params)
-data = response.json()
-''' DISPLAYING Album NAMES '''
-x = 0
-for i in range(0, 10):
-    print(data['albums']['items'][i]['name'])
-#['albums']['items'][8]['name']
-  
-# Print song names for first 10 songs in new releases returned by search endpoint
-#for i in range(0, 10):
-
