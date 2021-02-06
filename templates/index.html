@@ -14,10 +14,11 @@
             <p><b>The track we will be listening to today is: {{track}}</b></p>
             <img src={{image}} />  
             <p>Take a listen to a snippet here </p>
-            <audio control> 
-                <source scr={{preview}}  type="audio/mp3"{{ preview }}>
-            </audio>
+            
         </div>
+        <audio controls loop> 
+                <source src="{{preview}}"  type="audio/mp3">
+         </audio>
         
     </div>
 

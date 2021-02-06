@@ -17,7 +17,7 @@ AUTH_URL = 'https://accounts.spotify.com/api/token'
 #Top_Tracks_URL = 'https://api.spotify.com/v1/artists/1vaQ6v3pOFxAIrFoPrAcom/top-tracks'
 #schoolboyQ
 #Top_Tracks_URL = 'https://api.spotify.com/v1/artists/5IcR3N7QB1j6KBL8eImZ8m/top-tracks'
-Artist_List = ['https://api.spotify.com/v1/artists/2pAWfrd7WFF3XhVt9GooDL/top-tracks','https://api.spotify.com/v1/artists/7tYKF4w9nC0nq9CsPZTHyP/top-tracks','https://api.spotify.com/v1/artists/5IcR3N7QB1j6KBL8eImZ8m/top-tracks']
+Artist_List = ['https://api.spotify.com/v1/artists/2pAWfrd7WFF3XhVt9GooDL/top-tracks','https://api.spotify.com/v1/artists/1vaQ6v3pOFxAIrFoPrAcom/top-tracks','https://api.spotify.com/v1/artists/5IcR3N7QB1j6KBL8eImZ8m/top-tracks']
 
 def get_top_tracks():
     random_number = random.randint(0,9)
@@ -48,21 +48,12 @@ def get_top_tracks():
         return data['tracks'][random_number]['artists'][0]['name']
     def get_preview():
         return data['tracks'][random_number]['preview_url']
-   
     
     
     s_name = get_name()
     s_track = get_track()
     s_preview = get_preview()
     s_image = get_image()
-    
-    test_string = data['tracks'][random_number]['preview_url']
-    res = isinstance(test_string, str) 
-
-    if(res):
-     message = "BANG"
-    else:
-     return get_top_tracks()
     
     return { 's_name' : s_name, 
             's_track' : s_track,
