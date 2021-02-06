@@ -11,10 +11,17 @@ load_dotenv(find_dotenv()) # This is to load your API keys from .env
 
 ''' GETTING AN ACCESS TOKEN '''
 AUTH_URL = 'https://accounts.spotify.com/api/token'
-Top_Tracks_URL = 'https://api.spotify.com/v1/artists/2pAWfrd7WFF3XhVt9GooDL/top-tracks'
-#
+#MFDOOM
+#Top_Tracks_URL = 'https://api.spotify.com/v1/artists/2pAWfrd7WFF3XhVt9GooDL/top-tracks'
+#SZA
+#Top_Tracks_URL = 'https://api.spotify.com/v1/artists/1vaQ6v3pOFxAIrFoPrAcom/top-tracks'
+#schoolboyQ
+#Top_Tracks_URL = 'https://api.spotify.com/v1/artists/5IcR3N7QB1j6KBL8eImZ8m/top-tracks'
+Artist_List = ['https://api.spotify.com/v1/artists/2pAWfrd7WFF3XhVt9GooDL/top-tracks','https://api.spotify.com/v1/artists/1vaQ6v3pOFxAIrFoPrAcom/top-tracks','https://api.spotify.com/v1/artists/5IcR3N7QB1j6KBL8eImZ8m/top-tracks']
+
 def get_top_tracks():
-    random_number = random.randint(0,4)
+    random_number = random.randint(0,9)
+    random_artist = random.randint(0,2)
     auth_response = requests.post(AUTH_URL, {
     'grant_type': 'client_credentials',
     'client_id': os.getenv('Spotify_KEY'),
@@ -30,7 +37,7 @@ def get_top_tracks():
     headers= {'Authorization': 'Bearer {token}'.format(token=access_token)}
     params={'market' : 'US', 'id' :'2pAWfrd7WFF3XhVt9GooDL' }
 
-    response = requests.get(Top_Tracks_URL, headers=headers,params=params)
+    response = requests.get(Artist_List[random_artist], headers=headers,params=params)
     data = response.json()
 #''' DISPLAYING Top Tracks '''
     def get_image():
