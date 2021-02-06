@@ -7,20 +7,20 @@
 
 <body>
     <h1>Welcome to Jaymee's Artist Spotlight</h1>
-    <div class='container'>
-        <h2>The artist we will be showcasing today is: {{name}}</h2>
     
-        <div class='item'>
-            <p><b>The track we will be listening to today is: {{track}}</b></p>
-            <img src={{image}} />  
-            <p>Take a listen to a snippet here </p>
+    <h2>The artist we will be showcasing today is: <div class='track_Info'>{{name}}</div></h2>
+    
+    
+    <h3><b>The track we will be listening to today is: <div class='track_Info'>{{track}}</div></b></h3>
+    <img src={{image}} />  
+    <p>Take a listen to a snippet here </p>
             
-        </div>
-        <audio controls loop> 
-                <source src="{{preview}}"  type="audio/mp3">
-         </audio>
+    
+    <audio controls preload loop> 
+            <source src="{{preview}}"  type="audio/mp3">
+    </audio>
         
-    </div>
+   
 
 </body>
 
