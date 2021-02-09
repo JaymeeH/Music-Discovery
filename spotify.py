@@ -17,13 +17,15 @@ AUTH_URL = 'https://accounts.spotify.com/api/token'
 Artist_List = ['https://api.spotify.com/v1/artists/0g9vAlRPK9Gt3FKCekk4TW/top-tracks','https://api.spotify.com/v1/artists/2pAWfrd7WFF3XhVt9GooDL/top-tracks','https://api.spotify.com/v1/artists/7tYKF4w9nC0nq9CsPZTHyP/top-tracks']
 
 def get_top_tracks():
-    random_number = random.randint(0,9)
-    random_artist = random.randint(0,2)
-    auth_response = requests.post(AUTH_URL, {
+    random_number = random.randint(0,9)#randomly selects a number between 10 values: used later to choose 1 of 10 albums randomly
+    random_artist = random.randint(0,2)# used to select 1 of 3 artist id's randomly: picked from the hardcoded artist list above 
+#                       ~~~~~~~~~~~~~~~~~~~~~~Client Control Flow~~~~~~~~~~~~~~~~
+
+    auth_response = requests.post(AUTH_URL, { #reqests access token: sends api keys to spotify accounts service
     'grant_type': 'client_credentials',
     'client_id': os.getenv('Spotify_KEY'),
     'client_secret': os.getenv('Spotify_Secret'),
-    })
+    })# accounts service returns access token in json response
 
 #                           ~~~~~~~~~~~~~~convert response to json~~~~~~~~~~~~~~~~~~~~~
     auth_response_data = auth_response.json()
@@ -32,10 +34,10 @@ def get_top_tracks():
     access_token = auth_response_data['access_token']
 #                                   ~~~~~~~~~~GETTING SONG DATA ~~~~~~~~~~~~~~~~~~~
     headers= {'Authorization': 'Bearer {token}'.format(token=access_token)}
-    params={'market' : 'US', 'id' :'2pAWfrd7WFF3XhVt9GooDL' }
+    params={'market' : 'US', 'id' :'2pAWfrd7WFF3XhVt9GooDL' } #sending access token along with a request
 
     response = requests.get(Artist_List[random_artist], headers=headers,params=params)
-    data = response.json()
+    data = response.json()#spotify web api returns requested (unscoped) data: converted to json
 #                               ~~~~~~~~~~~~~DISPLAYING Top Track~~~~~~~~~~~~~~~
     def get_image():
         return data['tracks'][random_number]['album']['images'][0]['url']
