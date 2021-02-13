@@ -11,7 +11,7 @@ app1.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0    #prevents browser from caching d
 
 @app1.route('/')
 def hello_world():
-    print('Updated printline')
+    #print('Updated printline')
     
     top_tracks = get_top_tracks() #calls the spotify api, gaining access to the return data
     url_link = get_Song_Url(top_tracks['s_name'],top_tracks['s_track'])
@@ -28,6 +28,6 @@ def hello_world():
 app1.run(
     port=int(os.getenv('PORT',8080)),
     host=os.getenv('IP' '0.0.0.0'),
-    debug=True# when app is saved while running, the terminal will automatically "re-run" the file; making it so that you can just refresh the browser to see updates
+    #debug=True# when app is saved while running, the terminal will automatically "re-run" the file; making it so that you can just refresh the browser to see updates
     )
     
