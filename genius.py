@@ -20,6 +20,6 @@ def get_Song_Url(artist_Name,song_Name):
         return data['response']['hits'][0]['result']['url']
 
 
-    s_url = get_url()
+    s_url = get_url()#saving the url
     
-    return {'s_url' : s_url,}
+    return {'s_url' : s_url,}#sending keys to the app

@@ -8,12 +8,6 @@ load_dotenv(find_dotenv()) # This is to load your API keys from .env
 
 ''' GETTING AN ACCESS TOKEN '''
 AUTH_URL = 'https://accounts.spotify.com/api/token'
-#MFDOOM
-#Top_Tracks_URL = 'https://api.spotify.com/v1/artists/2pAWfrd7WFF3XhVt9GooDL/top-tracks'
-#SZA
-#Top_Tracks_URL = 'https://api.spotify.com/v1/artists/1vaQ6v3pOFxAIrFoPrAcom/top-tracks'
-#Kendrick Lamar
-#Top_Tracks_URL = 'https://api.spotify.com/v1/artists/5IcR3N7QB1j6KBL8eImZ8m/top-tracks'
 Artist_List = ['https://api.spotify.com/v1/artists/0g9vAlRPK9Gt3FKCekk4TW/top-tracks','https://api.spotify.com/v1/artists/2pAWfrd7WFF3XhVt9GooDL/top-tracks','https://api.spotify.com/v1/artists/7tYKF4w9nC0nq9CsPZTHyP/top-tracks']
 
 def get_top_tracks():
