@@ -14,7 +14,7 @@ def hello_world():
     top_tracks = get_top_tracks() #calls the spotify api, gaining access to the return data
     
     return render_template(# takes return data from spotify api, sends it to html template
-        "index.html",
+        "song.html",
         name=top_tracks['s_name'],
         track=top_tracks['s_track'],
         preview=top_tracks['s_preview'],
