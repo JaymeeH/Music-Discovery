@@ -6,8 +6,7 @@ import os #module providing functions to create/delete directories and fetching 
 import random
 
 app1 = Flask(__name__) #initializes the app name
-#app1.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0    #prevents browser from caching data, allows html and css files to update browser
-#random code
+
 
 @app1.route('/')
 def hello_world():
@@ -31,10 +30,3 @@ if __name__ == "__main__":
         port=int(os.getenv('PORT',8080)),
         host=os.getenv('IP' '0.0.0.0'),
 )
-'''
-app1.run(
-    port=int(os.getenv('PORT',8080)),
-    host=os.getenv('IP' '0.0.0.0'),
-    #debug=True# when app is saved while running, the terminal will automatically "re-run" the file; making it so that you can just refresh the browser to see updates
-    )'''
-    
