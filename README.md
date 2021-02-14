@@ -23,7 +23,8 @@
 
 # 2 known problems
 1. There are no known problems within the app or the spotify api. There was an issue with certain songs not having a non existant preview url, but I remedied this by having the spotify file check if the song chosen has an existing preview url before returning data to the app. If the preview does not exist, then the spotify file will keep running until it finds a song with a preview.
-2. Additional features I plan on implementing is a custom audio player created and styled by html and css. I also plan on implementing css animations to the web page.
+2. Within the Genius api, there may be instances where the link provided does not take the user to the song displayed. I increased the accuracy of the correct link being provided by providing the api with both the artist name and the song name, fetched by the spotify api and delivered through the app.
+3. Additional features I plan on implementing is a custom audio player created and styled by html and css. I also plan on implementing css animations to the web page.
 
 
 # 3 technical issues
