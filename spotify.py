@@ -8,18 +8,11 @@ load_dotenv(find_dotenv()) # This is to load your API keys from .env
 
 ''' GETTING AN ACCESS TOKEN '''
 AUTH_URL = 'https://accounts.spotify.com/api/token'
-Artist_List = ['https://api.spotify.com/v1/artists/4V8LLVI7PbaPR0K2TGSxFF/top-tracks',#9/10
-'https://api.spotify.com/v1/artists/2pAWfrd7WFF3XhVt9GooDL/top-tracks',#10/10
-'https://api.spotify.com/v1/artists/7tYKF4w9nC0nq9CsPZTHyP/top-tracks',#9/10
-'https://api.spotify.com/v1/artists/0AsThoR4KZSVktALiNcQwW/top-tracks',#10/10
-'https://api.spotify.com/v1/artists/7yO4IdJjCEPz7YgZMe25iS/top-tracks',#10/10
-'https://api.spotify.com/v1/artists/6aaMZ3fcfLv4tEbmY7bjRM/top-tracks', #10/10
-'https://api.spotify.com/v1/artists/7Hjbimq43OgxaBRpFXic4x/top-tracks', #10/10
-'https://api.spotify.com/v1/artists/13ubrt8QOOCPljQ2FL1Kca/top-tracks' ]#9/10
+Artist_List = ['https://api.spotify.com/v1/artists/0g9vAlRPK9Gt3FKCekk4TW/top-tracks','https://api.spotify.com/v1/artists/2pAWfrd7WFF3XhVt9GooDL/top-tracks','https://api.spotify.com/v1/artists/7tYKF4w9nC0nq9CsPZTHyP/top-tracks']
 
 def get_top_tracks():
     random_number = random.randint(0,9)#randomly selects a number between 10 values: used later to choose 1 of 10 albums randomly
-    random_artist = random.randint(0,7)# used to select 1 of 8 artist id's randomly: picked from the hardcoded artist list above 
+    random_artist = random.randint(0,2)# used to select 1 of 3 artist id's randomly: picked from the hardcoded artist list above 
 #                       ~~~~~~~~~~~~~~~~~~~~~~Client Control Flow~~~~~~~~~~~~~~~~
 
     auth_response = requests.post(AUTH_URL, { #reqests access token: sends api keys to spotify accounts service
