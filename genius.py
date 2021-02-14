@@ -22,4 +22,21 @@ def get_Song_Url(artist_Name,song_Name):
 
     s_url = get_url()#saving the url
     
+    test_string = data['response']['hits'][0]['result']['url']
+    test_list = data['response']['hits']
+    res = isinstance(test_string, str) 
+    
+    
+    if(res):
+     message = "BANG"
+    elif len(test_list) == 0:
+     s_url = 'https://genius.com/'
+     return {'s_url': s_url}
+    elif test_string == None:
+     s_url = 'https://genius.com/'
+     return {'s_url': s_url}
+    else:
+     s_url = 'https://genius.com/'
+     return {'s_url':s_url}
+    
     return {'s_url' : s_url,}#sending keys to the app
