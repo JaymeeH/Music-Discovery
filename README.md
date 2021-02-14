@@ -6,7 +6,9 @@
  b. import os
  c. from dotenv import load_dotenv, find_dotenv
  d. import random
-# STEP 2 - app1 deployment
+# STEP 2 - genius credentials
+1. Download genius.py from github; all packages used in the genius api are also used in the spotify api.
+# STEP 3 - app1 deployment
 1. download app1.py
 2. install the following packages
 3. from flask import Flask, render_template
@@ -15,7 +17,7 @@
 6. import random
 7. On the command line: type Python app1.py
 8. 
-# Step 3 - Webpage styling
+# STEP 4 - Webpage styling
 1. download the index.html
 2. download the style.css file
 
