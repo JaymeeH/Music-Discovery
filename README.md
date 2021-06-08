@@ -1,3 +1,4 @@
+#Link to Deployed APP : jaymees-showcase.herokuapp.com
 # Project 1 Milestone 1 - This Doc explains how to run the app so far
 
 # STEP 1 - spotify credentials
